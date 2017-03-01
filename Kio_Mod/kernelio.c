@@ -50,7 +50,7 @@ static LIST_HEAD(gbio_lat_list);
 
 static long kio_ioctl(struct file *filep, unsigned int cmd, unsigned long arg);
 
-MODULE_AUTHOR("Sahana Jagadeesan <sahana.ja@hcl.com>");
+MODULE_AUTHOR("Rajiv Shanmugam Madeswaran<rajiv.sm@hcl.com>, Sahana Jagadeesan <sahana.ja@hcl.com>");
 MODULE_DESCRIPTION("Kernel level IO tool");
 MODULE_LICENSE("GPL");
 MODULE_VERSION(KIO_DRIVER_VERSION);
