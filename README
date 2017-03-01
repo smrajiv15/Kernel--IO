@@ -1,0 +1,47 @@
+KERNEL IO TOOL
+--------------
+
+Kernel IO is a tool which generates IO request from the kernel block layer.
+Existing tools generates IO from the user space and the device performance is
+strongly influenced by excessive number of system calls and context switches.
+
+Buffer cache also plays an important role in measuring the throughput of the
+system. Some times data is read from the cache if it finds the data. So, 
+the performance of the system also depends on it.
+
+Why Kernel IO tool?
+-------------------
+1. This tool generates IO at the generic block layer, bypassing VFS, filesystem
+layer and buffer cache.
+2. Since it runs at a kernel level, it eliminates the overhead caused by system 
+calls and context switches.
+3. Bypasses many software layers as possible and gets close to the device giving 
+precise performance measurement.
+
+
+NOTE: This driver is only compatible with the kernel version - 3.16
+
+Steps to run
+------------
+1. Go to Kio_Mod folder and run the make command.
+
+2. Install the kernel Module:
+   insmod kernelio.ko
+
+3. After the successful installation check for kio device in the dev directory.
+
+4. Next, go to Kio_tool directory and compile the application with:
+   gcc -Wall -lpthread kiotool.c -o kiotool
+
+5. Then you can give the IO specification either in a file or by means of command
+   line arguments.
+
+	 command line:
+	 -------------
+	 kiotool –dev <block_device> --runtime <time_in_seconds> --rw <IO_type> --pattern <data>
+
+	 With Work-load file
+	 -------------------
+	 kiotool workload.txt
+
+

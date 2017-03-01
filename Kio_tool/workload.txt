@@ -1,0 +1,5 @@
+[work1]
+dev=<block device>
+rw=seqwrite
+runtime=300
+pattern=”sample pattern to write on the device”
